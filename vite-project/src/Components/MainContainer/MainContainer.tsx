@@ -2,12 +2,13 @@ import styles from "./MainCointainer.module.css";
 import DashboardCmp from "../Dashboard/DashboardCmp";
 
 interface ComponentMap {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: React.ComponentType<any>;
-};
+}
 
 interface DynamicComponentProps {
     componentName: string;
-};
+}
 
 type Props = {
     title: string
@@ -30,7 +31,7 @@ const assignComponent: React.FC<DynamicComponentProps> = ({ componentName }) => 
 
 const MainContainer = (props: Props) => {
 
-    let title: string = props.title;
+    const title: string = props.title;
 
 
     return (
