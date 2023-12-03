@@ -17,13 +17,15 @@ function App() {
   const fetchAuthorizationUrl = async () => {
     try {
       // Fetch the authorization URL from your server
-      const response = await fetch('/authorize');
+      const response = await fetch('http://localhost:5173/centwise/authorize');
+      const data = await response.json();
+      
 
       // Since you're redirecting, you don't need to parse JSON
       // The authorization URL is obtained from the response headers
-      const authorizationUrl = response.headers.get('Location');
+      //const authorizationUrl = response.headers.get('Location');
 
-      setAuthorizationUrl(authorizationUrl);
+      setAuthorizationUrl(data.authorizationUrl);
     } catch (error) {
       console.error('Error fetching authorization URL:', error.message);
     }

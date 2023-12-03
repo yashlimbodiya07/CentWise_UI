@@ -22,7 +22,8 @@ const initialize = (app: Express) => {
         console.log("userOAuthToken: " + userOAuthToken + " userOAuthTokenSecret: " + userOAuthTokenSecret);
         const userAuthUrl = authApi.getUserAuthorisationUrl(token);
         console.log("userAuthUrl: " + userAuthUrl);
-        res.redirect(userAuthUrl);
+        //res.redirect(userAuthUrl);
+        res.json({ authorizationUrl: userAuthUrl });
       })
       .catch((error: Error) => {
         console.error('Error getting authorization URL:', error.message);
